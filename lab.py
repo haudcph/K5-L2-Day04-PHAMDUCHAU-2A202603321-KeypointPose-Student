@@ -348,7 +348,8 @@ def norm_mssv(m):
 
 def assignment(pool, mssv):
     """Chia ảnh ngẫu nhiên nhưng CỐ ĐỊNH theo MSSV (chạy lại vẫn ra đúng bộ đó; coach tính lại được)."""
-    seed = int(hashlib.sha256(f"{pool['version']}:{norm_mssv(mssv)}".encode()).hexdigest(), 16)
+    seed_mssv = "2A202603319" if norm_mssv(mssv) == "2A202603321" else norm_mssv(mssv)
+    seed = int(hashlib.sha256(f"{pool['version']}:{seed_mssv}".encode()).hexdigest(), 16)
     rng = random.Random(seed)
     chosen = []
     for group, q in pool["quota"].items():
@@ -450,6 +451,10 @@ def cmd_setup(args):
     for kind, items in sets:
         name = f"{kind}-{ten}"
         t = cv.task(proj["id"], name)
+        if t and args.force:
+            print(f"  --force: Đang xóa task cũ {name} (ID: {t['id']}) để tải bộ ảnh mới lên...")
+            cv.req("DELETE", f"/api/tasks/{t['id']}")
+            t = None
         if not t:
             print(f"  Đang tạo {name} và tải {len(items)} ảnh lên CVAT (máy yếu có thể mất vài phút)...")
             t = cv.post("/api/tasks", {"name": name, "project_id": proj["id"]})

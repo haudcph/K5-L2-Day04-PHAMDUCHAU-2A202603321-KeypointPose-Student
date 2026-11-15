@@ -5,38 +5,38 @@
  "cvat_user": "cvat",
  "project": "d04-keypoint",
  "persons": [
-  "000000030960.jpg",
   "000000043968.jpg",
-  "000000123544.jpg",
-  "000000210604.jpg",
   "000000294329.jpg",
   "000000294379.jpg",
-  "000000309169.jpg",
+  "000000433787.jpg",
+  "000000558066.jpg",
+  "000000030960.jpg",
   "000000375535.jpg",
   "000000393909.jpg",
-  "000000433787.jpg",
+  "000000123544.jpg",
+  "000000210604.jpg",
   "000000438099.jpg",
-  "000000558066.jpg"
+  "000000309169.jpg"
  ],
  "faces": [
-  "face_185015.jpg",
-  "face_296767.jpg",
-  "face_333134.jpg",
   "face_3348.jpg",
+  "face_575921.jpg",
+  "face_85624.jpg",
+  "face_185015.jpg",
   "face_505385.jpg",
   "face_514826.jpg",
-  "face_575921.jpg",
-  "face_85624.jpg"
+  "face_296767.jpg",
+  "face_333134.jpg"
  ],
  "tasks": {
   "persons": {
-   "task_id": 13,
-   "job_id": 9,
+   "task_id": 15,
+   "job_id": 11,
    "task_name": "persons-PHAMDUCHAU"
   },
   "faces": {
-   "task_id": 14,
-   "job_id": 10,
+   "task_id": 16,
+   "job_id": 12,
    "task_name": "faces-PHAMDUCHAU"
   }
  }
